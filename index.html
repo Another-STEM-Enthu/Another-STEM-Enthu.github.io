@@ -7,15 +7,15 @@
   <style>
   @media (orientation: portrait) {
     :root {
-      --hi-txt: clamp(2.2vmin, 2.2vh, 2.2vmin);
-      --intro-text: 5.2vmin;
+      --hi-txt: clamp(2.2vmin, 3vh, 3vh);
+       --hi-height: calc(12 * var(--hi-txt));
     }
   }
 
   @media (orientation: landscape) {
     :root {
       --hi-txt: clamp(2.2vmax, 2.2vh, 2.2vmin);
-      --intro-text: 5.2vmin;
+      --hi-height: calc(8 * var(--hi-txt));
     }
   }
     /* body {
@@ -41,12 +41,12 @@
       border-left: 0.5vh solid rgb(0, 128, 0);
       border-right: 0.5vh solid rgb(0, 128, 0);
       width: 60vw;
-      height: 19vw;	
+      height: var(--hi-height) /*19vw*/;	
       transition: 0.7s ease;	
       opacity: 1.0;
       font-size: calc(0.7*var(--hi-txt));
     }
-
+    
     #intro:hover{
       transform: scale(1.05);
     }
@@ -59,7 +59,7 @@
       border-left: 0.5vh solid rgb(0, 128, 0);
       border-right: 0.5vh solid rgb(0, 128, 0);
       width: 19vw;
-      height: 19vw;	
+      height: var(--hi-height)/*19vw*/;	
       transition: 0.7s ease;	
       opacity: 1.0;
       font-size: var(--hi-txt);	
@@ -96,7 +96,7 @@
       border-radius: 8px;		
       width: 8vw;
       height: 7vh;
-      font-size: 2.5vh;
+      font-size: calc(0.45*var(--hi-txt));
       border-top: 5px solid rgb(0, 128, 0);
       border-bottom: none;
       border-right: none;
