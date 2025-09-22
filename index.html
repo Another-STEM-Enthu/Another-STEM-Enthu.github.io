@@ -8,7 +8,8 @@
   @media (orientation: portrait) {
     :root {
       --hi-txt: clamp(2.0vmin, 3vh, 3vh);
-      --hi-height: calc(20.04 * var(--hi-txt));
+      --hi-height: calc(14.04 * var(--hi-txt));
+      --intro-height: calc(20.04 * var(--hi-txt));
     }
   }
 
@@ -16,6 +17,7 @@
     :root {
       --hi-txt: clamp(2.0vmax, 2.2vh, 2.2vmin);
       --hi-height: calc(12 * var(--hi-txt));
+      --intro-height: calc(10 * var(--hi-txt));
     }
   }
     /* body {
@@ -31,25 +33,6 @@
       background-position: center;  
       background-repeat: no-repeat;
     }
-
-    #intro{
-      position: absolute;
-      top:40vh;
-      left:20vw;
-      background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 2.5vw;		
-      border-left: 0.5vh solid rgb(0, 128, 0);
-      border-right: 0.5vh solid rgb(0, 128, 0);
-      width: 60vw;
-      height: calc(0.7*var(--hi-height)) /*19vw*/;	
-      transition: 0.7s ease;	
-      opacity: 1.0;
-      font-size: calc(0.7*var(--hi-txt));
-    }
-    
-    #intro:hover{
-      transform: scale(1.05);
-    }
     #hi{
       position: absolute;
       top:5vh;
@@ -63,11 +46,35 @@
       transition: 0.7s ease;	
       opacity: 1.0;
       font-size: var(--hi-txt);	
+      padding-left: 1.5vw;
+      padding-right: 1.5vw;
     }
 
     #hi:hover{
       transform: scale(1.1);
     }
+
+    #intro{
+      position: absolute;
+      top:calc(0.7*var(--hi-height))/*40vh*/;
+      left:20vw;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 2.5vw;		
+      border-left: 0.5vh solid rgb(0, 128, 0);
+      border-right: 0.5vh solid rgb(0, 128, 0);
+      width: 60vw;
+      height: calc(0.7*var(--intro-height)) /*19vw*/;	
+      transition: 0.7s ease;	
+      opacity: 1.0;
+      font-size: calc(0.7*var(--hi-txt));
+      padding-left: 1.5vw;
+      padding-right: 1.5vw;
+    }
+    
+    #intro:hover{
+      transform: scale(1.05);
+    }
+
     #sitemap{
       position: fixed;
       bottom:0vh;
