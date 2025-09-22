@@ -8,14 +8,14 @@
   @media (orientation: portrait) {
     :root {
       --hi-txt: clamp(2.2vmin, 3vh, 3vh);
-       --hi-height: calc(12 * var(--hi-txt));
+      --hi-height: calc(12 * var(--hi-txt));
     }
   }
 
   @media (orientation: landscape) {
     :root {
       --hi-txt: clamp(2.2vmax, 2.2vh, 2.2vmin);
-      --hi-height: calc(8 * var(--hi-txt));
+      --hi-height: calc(12 * var(--hi-txt));
     }
   }
     /* body {
@@ -34,14 +34,14 @@
 
     #intro{
       position: absolute;
-      top:30vh;
-      left:32vw;
+      top:40vh;
+      left:20vw;
       background-color: rgba(255, 255, 255, 0.3);
       border-radius: 2.5vw;		
       border-left: 0.5vh solid rgb(0, 128, 0);
       border-right: 0.5vh solid rgb(0, 128, 0);
       width: 60vw;
-      height: var(--hi-height) /*19vw*/;	
+      height: calc(0.7*var(--hi-height)) /*19vw*/;	
       transition: 0.7s ease;	
       opacity: 1.0;
       font-size: calc(0.7*var(--hi-txt));
@@ -52,14 +52,14 @@
     }
     #hi{
       position: absolute;
-      top:30vh;
-      left:6vw;
+      top:5vh;
+      left:20vw;
       background-color: rgba(255, 255, 255, 0.3);
       border-radius: 2.5vw;		
       border-left: 0.5vh solid rgb(0, 128, 0);
       border-right: 0.5vh solid rgb(0, 128, 0);
-      width: 22vw;
-      height: var(--hi-height)/*19vw*/;	
+      width: 60vw;
+      height: calc(0.5*var(--hi-height))/*var(--hi-height)*//*19vw*/;	
       transition: 0.7s ease;	
       opacity: 1.0;
       font-size: var(--hi-txt);	
@@ -135,7 +135,7 @@
 
 <div id = "bkg">
 
-  <div id="hi"><center><br><br>
+  <div id="hi"><center><br>
   <!-- <font size="var(--hi-txt)" color="green"><b>Hi</b></font> -->
   <b>Hi</b>
   <br>
