@@ -10,6 +10,9 @@
       --hi-txt: clamp(2.0vmin, 3vh, 3vh);
       --hi-height: calc(14.04 * var(--hi-txt));
       --intro-height: calc(20.04 * var(--hi-txt));
+      --slider-size: calc(2.5 * var(--hi-txt));
+      --switch-size: calc(5 * var(--hi-txt));
+      --movex-dist: calc(0.49*var(--switch-size));
     }
   }
 
@@ -18,6 +21,9 @@
       --hi-txt: clamp(2.0vmax, 2.2vh, 2.2vmin);
       --hi-height: calc(12 * var(--hi-txt));
       --intro-height: calc(10 * var(--hi-txt));
+      --slider-size: calc(2.5 * var(--hi-txt));
+      --switch-size: 15vw;
+      --movex-dist: calc(0.65*var(--switch-size));
     }
   }
     /* body {
@@ -135,6 +141,74 @@
       opacity: 1;
       right: 0;
     }
+
+    /* Slider container */
+    .slider-container {
+      position: absolute;
+      /* top: calc(0.7*var(--hi-height) + 0.7*var(--intro-height) + 1vh); */
+      top: calc(0.1*var(--hi-height));
+      left: 1vw;
+      transform: translateX(-calc(0.49*var(--switch-size)));
+      display: flex;
+      align-items: center;
+    }
+
+    /* Switch wrapper */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: calc(var(--switch-size));/*calc(6 * var(--slider-size))*/;
+      height: calc(1.0 * var(--slider-size));
+    }
+
+    /* Hide checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* Slider track */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc;       /* track color */
+      transition: 0.4s;
+      border-radius: calc(0.75 * var(--slider-size));
+    }
+
+    /* Circle handle with text inside */
+    .slider::before {
+      content: "Casual";
+      position: absolute;
+      height: calc(0.8 * var(--slider-size));
+      width: calc(0.8 * var(--slider-size));
+      left: calc(0.1 * var(--slider-size));
+      bottom: calc(0.1 * var(--slider-size));
+      background-color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: calc(0.8* var(--slider-size));
+      font-size: calc(0.5 * var(--hi-txt));
+      font-weight: bold;
+      color: rgb(0, 128, 0); /* green text */
+      transition: 0.4s;
+    }
+
+    /* Slider active state */
+    input:checked + .slider {
+      background-color: rgb(0, 128, 0); /* green track */
+    }
+
+    input:checked + .slider::before {
+      /* transform: translateX(calc(4 * var(--slider-size))); */
+      transform: translateX(var(--movex-dist));
+      content: "Pro";                   /* text changes */
+      color: rgb(0, 128, 0);                      /* text on green */
+      background-color: #ccc;  /* optional: circle green */
+    }
+
   </style>
 </head>
 <!-- <body background="bkg.jpeg"> -->
@@ -155,10 +229,16 @@
   </center>
   </div>
 
+<div class="slider-container">
+  <label class="switch">
+    <input type="checkbox" id="modeToggle">
+    <span class="slider"></span>
+  </label>
+</div>
 
 
   <div id="intro"><center>
-  
+
   <!-- <font size="7vw" color="green"> -->
   <!-- <b>Professional</b> -->
   <!-- </font> -->
@@ -170,23 +250,38 @@
   <!-- <br><br> -->
   <!-- <font size="4.5vw" color="black"> -->
   <b>
-  I've always longed to understand how phones communicate with towers and exchange information.
-  As part of my major, I am exploring the technology that goes into designing MIMO systems. Besides coursework spanning related topics, I am involved in research on Cell-Free MIMO systems.
-
-  As part of my minor, I have explored the popular themes in Machine Learning and Reinforcement Learning.
+  I'm a full-time music addict, part-time engineer, and a wannabe photographer. Always like to spend a good amount of time wondering about existence, linguistics and miscellaneous philosophy.
+  Haha do not be surprised if you see me staring at the sky randomly, I absolutely love watching clouds. Besides wrestling integrals and feeling belittled by clever math puzzles everytime I get bored, I also attempt poetry!
   </b>
   <!-- </font> -->
   </center></div>
 
-<div id="sitemap">
-  <a href="#cont"><button class="btn" style="top:3vh; left:2vw;"><span>Home</span></button></a>
-  <a href="#offers"><button class="btn" style="top:3vh; left:12vw;"><span>Posts</span></button></a>
-  <a href="#electronics"><button class="btn" style="top:3vh; left:22vw;"><span>Photos</span></button></a>
-  <!-- <a href="#apparels"><button class="btn" style="top:3vh; left:32vw;"><span>Hobbies</span></button></a> -->
-  <!-- <a href="#ReachUs"><button class="btn" style="top:3vh; left:42vw;"><span>Reach Us</span></button></a> -->
-</div>
+  <div id="sitemap">
+    <a href="#home"><button class="btn" style="top:3vh; left:2vw;"><span>Home</span></button></a>
+    <a href="#posts"><button class="btn" style="top:3vh; left:12vw;"><span>Posts</span></button></a>
+    <a href="#photos"><button class="btn" style="top:3vh; left:22vw;"><span>Photos</span></button></a>
+    <!-- <a href="#apparels"><button class="btn" style="top:3vh; left:32vw;"><span>Hobbies</span></button></a> -->
+    <!-- <a href="#ReachUs"><button class="btn" style="top:3vh; left:42vw;"><span>Reach Us</span></button></a> -->
+  </div>
 
 </div>
+
+<script>
+const intro = document.getElementById('intro');
+const toggle = document.getElementById('modeToggle');
+
+const casualText = `I'm a full-time music addict, part-time engineer, and a wannabe photographer. Always like to spend a good amount of time wondering about existence, linguistics and miscellaneous philosophy.
+Do not be surprised if you see me staring at the sky randomly, I absolutely love watching clouds. Besides wrestling integrals and feeling belittled by clever math puzzles everytime I get bored, I also attempt poetry!`;
+
+const professionalText = `I've always longed to understand how phones communicate with towers and exchange information.
+As part of my major @ IIT Bombay, I am exploring the technology that goes into designing MIMO systems. Besides coursework spanning related topics, I am involved in research on Cell-Free MIMO systems.
+As part of my minor, I have explored the popular themes in Machine Learning and Reinforcement Learning.`;
+
+toggle.addEventListener('change', () => {
+  intro.innerHTML = toggle.checked ? `<center><br><br><b>${professionalText}</b></center>` : `<center><br><br><b>${casualText}</b></center>`;
+});
+</script>
+
 </body>
 </html>
 
