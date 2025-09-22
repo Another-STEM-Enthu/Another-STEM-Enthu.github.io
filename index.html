@@ -5,22 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My GitHub Page</title>
   <style>
-    body {
+    /* body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 50px;
+    } */
+    #bkg{
+      background-image: image-set('bkg.jpeg');
+      width: 98vw;
+      height: 97vh;
+      background-size: cover;
+      background-position: center;  
+      background-repeat: no-repeat;
     }
-    h1 {
-      color: #333;
+
+    #intro{
+      position: absolute;
+      top:30vh;
+      left:26vw;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 8px;		
+      border-left: 0.3vh solid red;
+      border-right: 0.3vh solid red;
+      width: 60vw;
+      height: 19vw;	
+      transition: 0.7s ease;	
+      opacity: 1.0;
     }
-    a {
-      color: #0366d6;
-      text-decoration: none;
+
+    #intro:hover{
+      transform: scale(1.05);
     }
+    #hi{
+      position: absolute;
+      top:30vh;
+      left:6vw;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 8px;		
+      border-left: 0.3vh solid red;
+      border-right: 0.3vh solid red;
+      width: 19vw;
+      height: 19vw;	
+      transition: 0.7s ease;	
+      opacity: 1.0;	
+    }
+
+    #hi:hover{
+      transform: scale(1.1);
+    }
+
   </style>
 </head>
+<!-- <body background="bkg.jpeg"> -->
 <body>
-  <h1>Welcome to My GitHub Page!</h1>
-  <p>site loading....</p>
+
+<div id = "bkg">
+
+  <div id="hi"><center><br><br><br>
+  <font size="7vh" color="red"><b>Hi</b></font>
+  <br>
+  <font size="4vh" color="red"><b>Welcome to<br><font color="white" size="5vh">Varad's musings.</font><br><br>pure design.</b></font>
+  </center>
+  </div>
+
+
+
+  <div id="intro"><center>
+
+  <font size="7vh" color="black"><b>Professional</b></font><br>
+  <!-- <font size="5vh" color="white"><b>Shopping Website in Maharashtra</b></font> -->
+
+
+  <br><br><br><br><br>
+  <font size="4.5vh" color="red"><b>
+  I have always longed to understand how phones communicate with towers and exchange information.
+  As part of my major, I am exploring the technology that goes into designing MIMO systems. Besides coursework spanning related topics, I am involved in research on Cell-Free MIMO systems.
+
+  As part of my minor, I have explored the popular themes in Machine Learning and Reinforcement Learning.</font></b>
+  </div>
+
+</div>
 </body>
 </html>
+
+
