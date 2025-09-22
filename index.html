@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My GitHub Page</title>
   <style>
+  @media (orientation: portrait) {
+    :root {
+      --hi-txt: clamp(2.2vmin, 2.2vh, 2.2vmin);
+      --intro-text: 5.2vmin;
+    }
+  }
+
+  @media (orientation: landscape) {
+    :root {
+      --hi-txt: clamp(2.2vmax, 2.2vh, 2.2vmin);
+      --intro-text: 5.2vmin;
+    }
+  }
     /* body {
       font-family: Arial, sans-serif;
       text-align: center;
@@ -12,8 +25,8 @@
     } */
     #bkg{
       background-image: image-set('bkg.jpeg');
-      width: 98vw;
-      height: 97vh;
+      width: 98.51vw;
+      height: 97.85vh;
       background-size: cover;
       background-position: center;  
       background-repeat: no-repeat;
@@ -24,13 +37,14 @@
       top:30vh;
       left:26vw;
       background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 8px;		
-      border-left: 0.3vh solid red;
-      border-right: 0.3vh solid red;
+      border-radius: 2.5vw;		
+      border-left: 0.5vh solid rgb(0, 128, 0);
+      border-right: 0.5vh solid rgb(0, 128, 0);
       width: 60vw;
       height: 19vw;	
       transition: 0.7s ease;	
       opacity: 1.0;
+      font-size: calc(0.7*var(--hi-txt));
     }
 
     #intro:hover{
@@ -41,19 +55,79 @@
       top:30vh;
       left:6vw;
       background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 8px;		
-      border-left: 0.3vh solid red;
-      border-right: 0.3vh solid red;
+      border-radius: 2.5vw;		
+      border-left: 0.5vh solid rgb(0, 128, 0);
+      border-right: 0.5vh solid rgb(0, 128, 0);
       width: 19vw;
       height: 19vw;	
       transition: 0.7s ease;	
-      opacity: 1.0;	
+      opacity: 1.0;
+      font-size: var(--hi-txt);	
     }
 
     #hi:hover{
       transform: scale(1.1);
     }
+    #sitemap{
+      position: fixed;
+      bottom:0vh;
+      left:34vw;
+      border-top: 1vh solid rgb(0, 128, 0);
+      border-bottom: 1vh solid rgb(0, 128, 0);
+      background-color: rgba(0, 0, 0, 0.9);
+      border-radius: 0.8vw;		
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      width: 32vw;
+      height: 12vh;   /* keeps spacing responsive */
+      transition: 0.7s ease-out;	
+      opacity: 0.4;
+    }
 
+    #sitemap:hover{
+      opacity:1;
+      transform: scale(1.1);
+      background-color: rgba(0, 0, 0,1);
+    }
+    .btn {
+      position: absolute;
+      border-radius: 8px;		
+      width: 8vw;
+      height: 7vh;
+      font-size: 2.5vh;
+      border-top: 5px solid rgb(0, 128, 0);
+      border-bottom: none;
+      border-right: none;
+      border-left: none;
+      cursor: pointer; /* correct, not "hand" */
+    }
+
+    .btn span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .btn span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -10px;
+      transition: 0.5s;
+    }
+
+    .btn:hover span {
+      padding-right: 25px;
+    }
+
+    .btn:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
   </style>
 </head>
 <!-- <body background="bkg.jpeg"> -->
@@ -61,28 +135,49 @@
 
 <div id = "bkg">
 
-  <div id="hi"><center><br><br><br>
-  <font size="7vh" color="red"><b>Hi</b></font>
+  <div id="hi"><center><br><br>
+  <!-- <font size="var(--hi-txt)" color="green"><b>Hi</b></font> -->
+  <b>Hi</b>
   <br>
-  <font size="4vh" color="red"><b>Welcome to<br><font color="white" size="5vh">Varad's musings.</font><br><br>pure design.</b></font>
+  <!-- <font size="4vh" color="green"> -->
+  <!-- <font color="black" size="5vh"> -->
+  <b>Welcome to<br> "Varad's musings."</b>
+   <!-- </font> -->
+  <!-- </font> -->
+  <!-- <br><br>pure design.</b></font> -->
   </center>
   </div>
 
 
 
   <div id="intro"><center>
-
-  <font size="7vh" color="black"><b>Professional</b></font><br>
+  
+  <!-- <font size="7vw" color="green"> -->
+  <!-- <b>Professional</b> -->
+  <!-- </font> -->
+  <!-- <br> -->
   <!-- <font size="5vh" color="white"><b>Shopping Website in Maharashtra</b></font> -->
 
 
-  <br><br><br><br><br>
-  <font size="4.5vh" color="red"><b>
-  I have always longed to understand how phones communicate with towers and exchange information.
+  <br><br>
+  <!-- <br><br> -->
+  <!-- <font size="4.5vw" color="black"> -->
+  <b>
+  I've always longed to understand how phones communicate with towers and exchange information.
   As part of my major, I am exploring the technology that goes into designing MIMO systems. Besides coursework spanning related topics, I am involved in research on Cell-Free MIMO systems.
 
-  As part of my minor, I have explored the popular themes in Machine Learning and Reinforcement Learning.</font></b>
-  </div>
+  As part of my minor, I have explored the popular themes in Machine Learning and Reinforcement Learning.
+  </b>
+  <!-- </font> -->
+  </center></div>
+
+<div id="sitemap">
+  <a href="#cont"><button class="btn" style="top:3vh; left:2vw;"><span>Home</span></button></a>
+  <a href="#offers"><button class="btn" style="top:3vh; left:12vw;"><span>Posts</span></button></a>
+  <a href="#electronics"><button class="btn" style="top:3vh; left:22vw;"><span>Photos</span></button></a>
+  <!-- <a href="#apparels"><button class="btn" style="top:3vh; left:32vw;"><span>Hobbies</span></button></a> -->
+  <!-- <a href="#ReachUs"><button class="btn" style="top:3vh; left:42vw;"><span>Reach Us</span></button></a> -->
+</div>
 
 </div>
 </body>
