@@ -13,6 +13,8 @@
       --slider-size: calc(2.5 * var(--hi-txt));
       --switch-size: calc(5 * var(--hi-txt));
       --movex-dist: calc(0.49*var(--switch-size));
+      --sitemap-xsize: 55vw;
+      --sitemap-left: 25vw;
     }
   }
 
@@ -24,6 +26,9 @@
       --slider-size: calc(2.5 * var(--hi-txt));
       --switch-size: 15vw;
       --movex-dist: calc(0.65*var(--switch-size));
+      --sitemap-xsize: 32vw;
+      --sitemap-left: 34vw;
+
     }
   }
     /* body {
@@ -84,7 +89,7 @@
     #sitemap{
       position: fixed;
       bottom:0vh;
-      left:34vw;
+      left:var(--sitemap-left);
       border-top: 1vh solid rgb(0, 128, 0);
       border-bottom: 1vh solid rgb(0, 128, 0);
       background-color: rgba(0, 0, 0, 0.9);
@@ -93,7 +98,7 @@
       justify-content: space-around;
       align-items: center;
       position: absolute;
-      width: 32vw;
+      width: var(--sitemap-xsize)/*32vw*/;
       height: 12vh;   /* keeps spacing responsive */
       transition: 0.7s ease-out;	
       opacity: 0.4;
@@ -107,7 +112,7 @@
     .btn {
       position: absolute;
       border-radius: 8px;		
-      width: 8vw;
+      width: calc(0.26*var(--sitemap-xsize))/*8vw*/;
       height: 7vh;
       font-size: calc(0.45*var(--hi-txt));
       border-top: 5px solid rgb(0, 128, 0);
@@ -217,16 +222,8 @@
 <div id = "bkg">
 
   <div id="hi"><center><br>
-  <!-- <font size="var(--hi-txt)" color="green"><b>Hi</b></font> -->
-  <!-- <b>Hi</b> -->
-  
   <br>
-  <!-- <font size="4vh" color="green"> -->
-  <!-- <font color="black" size="5vh"> -->
   <b>Welcome to<br> "Varad's musings."</b>
-   <!-- </font> -->
-  <!-- </font> -->
-  <!-- <br><br>pure design.</b></font> -->
   </center>
   </div>
 
@@ -240,30 +237,24 @@
 
   <div id="intro"><center>
 
-  <!-- <font size="7vw" color="green"> -->
-  <!-- <b>Professional</b> -->
-  <!-- </font> -->
-  <!-- <br> -->
-  <!-- <font size="5vh" color="white"><b>Shopping Website in Maharashtra</b></font> -->
-
-
   <br><br>
   <!-- <br><br> -->
   <!-- <font size="4.5vw" color="black"> -->
   <b>
-  I'm a full-time music addict, part-time engineer, and a wannabe photographer. Always like to spend a good amount of time wondering about existence, linguistics and miscellaneous philosophy.
-  Haha do not be surprised if you see me staring at the sky randomly, I absolutely love watching clouds. Besides wrestling integrals and feeling belittled by clever math puzzles everytime I get bored, I also attempt poetry!
+  I'm a full-time music addict, part-time engineer, and a wannabe photographer. Always like to spend a good amount of my day wondering about existence, linguistics and miscellaneous philosophy.
+  Haha do not be surprised if you see me staring at the sky randomly, I absolutely love watching clouds.
+  Besides wrestling integrals and feeling belittled by clever math puzzles everytime I get bored, I also attempt poetry!
   </b>
   <!-- </font> -->
   </center></div>
 
   <div id="sitemap">
-    <a href="#home"><button class="btn" style="top:3vh; left:2vw;"><span>Home</span></button></a>
-    <a href="#posts"><button class="btn" style="top:3vh; left:12vw;"><span>Posts</span></button></a>
-    <a href="#about"><button class="btn" style="top:3vh; left:22vw;"><span>About</span></button></a>
-    <!-- <a href="#apparels"><button class="btn" style="top:3vh; left:32vw;"><span>Hobbies</span></button></a> -->
-    <!-- <a href="#ReachUs"><button class="btn" style="top:3vh; left:42vw;"><span>Reach Us</span></button></a> -->
+    <a href="#home"><button class="btn" style="top:3vh; left:calc(0.055*var(--sitemap-xsize));;"><span>Home</span></button></a>
+    <a href="#posts"><button class="btn" style="top:3vh; left:calc(0.37*var(--sitemap-xsize));"><span>Posts</span></button></a>
+    <a href="#about"><button class="btn" style="top:3vh; left:calc(0.695*var(--sitemap-xsize));"><span>About</span></button></a>
   </div>
+
+
 
 </div>
 
@@ -271,8 +262,8 @@
 const intro = document.getElementById('intro');
 const toggle = document.getElementById('modeToggle');
 
-const casualText = `I'm a full-time music addict, part-time engineer, and a wannabe photographer. Always like to spend a good amount of time wondering about existence, linguistics and miscellaneous philosophy.
-Do not be surprised if you see me staring at the sky randomly, I absolutely love watching clouds. Besides wrestling integrals and feeling belittled by clever math puzzles everytime I get bored, I also attempt poetry!`;
+const casualText = `I'm a full-time music addict, part-time engineer, and a wannabe photographer. Always like to spend a good amount of my day wondering about existence, linguistics and miscellaneous philosophy.
+Do not be surprised if you see me staring at the sky randomly, I absolutely love watching clouds. Besides wrestling integrals and feeling belittled by clever math puzzles everytime I get bored, <br> I also attempt poetry!`;
 
 const professionalText = `I've always longed to understand how phones communicate with towers and exchange information.
 As part of my major @ IIT Bombay, I am exploring the technology that goes into designing MIMO systems. Besides coursework spanning related topics, I am involved in research on Cell-Free MIMO systems.
