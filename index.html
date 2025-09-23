@@ -15,6 +15,7 @@
       --movex-dist: calc(0.49*var(--switch-size));
       --sitemap-xsize: 55vw;
       --sitemap-left: 25vw;
+      --sitemap-opacity: 1.0;
     }
   }
 
@@ -28,6 +29,7 @@
       --movex-dist: calc(0.65*var(--switch-size));
       --sitemap-xsize: 32vw;
       --sitemap-left: 34vw;
+      --sitemap-opacity: 0.4;
 
     }
   }
@@ -101,7 +103,7 @@
       width: var(--sitemap-xsize)/*32vw*/;
       height: 12vh;   /* keeps spacing responsive */
       transition: 0.7s ease-out;	
-      opacity: 0.4;
+      opacity:var(--sitemap-opacity);
     }
 
     #sitemap:hover{
@@ -250,7 +252,7 @@
 
   <div id="sitemap">
     <a href="#home"><button class="btn" style="top:3vh; left:calc(0.055*var(--sitemap-xsize));;"><span>Home</span></button></a>
-    <a href="#posts"><button class="btn" style="top:3vh; left:calc(0.37*var(--sitemap-xsize));"><span>Posts</span></button></a>
+    <a href="#posts"><button class="btn" style="top:3vh; left:calc(0.375*var(--sitemap-xsize));"><span>Posts</span></button></a>
     <a href="#about"><button class="btn" style="top:3vh; left:calc(0.695*var(--sitemap-xsize));"><span>About</span></button></a>
   </div>
 
