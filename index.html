@@ -9,7 +9,7 @@
     :root {
       --hi-txt: clamp(2.0vmin, 3vh, 3vh);
       --hi-height: calc(14.04 * var(--hi-txt));
-      --intro-height: calc(20.04 * var(--hi-txt));
+      --intro-height: calc(25.04 * var(--hi-txt));
       --slider-size: calc(2.5 * var(--hi-txt));
       --switch-size: calc(5 * var(--hi-txt));
       --movex-dist: calc(0.49*var(--switch-size));
@@ -218,7 +218,8 @@
 
   <div id="hi"><center><br>
   <!-- <font size="var(--hi-txt)" color="green"><b>Hi</b></font> -->
-  <b>Hi</b>
+  <!-- <b>Hi</b> -->
+  
   <br>
   <!-- <font size="4vh" color="green"> -->
   <!-- <font color="black" size="5vh"> -->
@@ -259,7 +260,7 @@
   <div id="sitemap">
     <a href="#home"><button class="btn" style="top:3vh; left:2vw;"><span>Home</span></button></a>
     <a href="#posts"><button class="btn" style="top:3vh; left:12vw;"><span>Posts</span></button></a>
-    <a href="#photos"><button class="btn" style="top:3vh; left:22vw;"><span>Photos</span></button></a>
+    <a href="#about"><button class="btn" style="top:3vh; left:22vw;"><span>About</span></button></a>
     <!-- <a href="#apparels"><button class="btn" style="top:3vh; left:32vw;"><span>Hobbies</span></button></a> -->
     <!-- <a href="#ReachUs"><button class="btn" style="top:3vh; left:42vw;"><span>Reach Us</span></button></a> -->
   </div>
@@ -279,6 +280,8 @@ As part of my minor, I have explored the popular themes in Machine Learning and 
 
 toggle.addEventListener('change', () => {
   intro.innerHTML = toggle.checked ? `<center><br><br><b>${professionalText}</b></center>` : `<center><br><br><b>${casualText}</b></center>`;
+  bkg.style.backgroundImage = toggle.checked ? "None" : "image-set('bkg.jpeg')";
+  bkg.style.backgroundColor = toggle.checked ? "black" : "None";
 });
 </script>
 
