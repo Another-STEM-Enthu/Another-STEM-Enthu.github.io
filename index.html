@@ -11,8 +11,8 @@
       --hi-height: calc(14.04 * var(--hi-txt));
       --intro-height: calc(25.04 * var(--hi-txt));
       --slider-size: calc(2.5 * var(--hi-txt));
-      --switch-size: calc(5 * var(--hi-txt));
-      --movex-dist: calc(0.49*var(--switch-size));
+      --switch-size: calc(3.5 * var(--hi-txt));
+      --movex-dist: calc(0.29*var(--switch-size));
       --sitemap-xsize: 55vw;
       --sitemap-left: 25vw;
       --sitemap-opacity: 1.0;
@@ -38,14 +38,29 @@
       text-align: center;
       margin: 50px;
     } */
-    #bkg{
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("bkg.jpeg") no-repeat center center;
+      background-size: cover;
+      z-index: -1; /* sit behind all content */
+    }
+    body.dark::before {
+      background: url("bkgdark.jpeg") no-repeat center center;
+      background-size: cover;
+    }   
+    /* #bkg{
       background-image: image-set('bkg.jpeg');
       width: 98.51vw;
       height: 97.85vh;
       background-size: cover;
       background-position: center;  
       background-repeat: no-repeat;
-    }
+    } */
     #hi{
       position: absolute;
       top:15vh;
@@ -276,7 +291,8 @@ toggle.addEventListener('change', () => {
   // intro.innerHTML = toggle.checked ? `<center><br><br><b>${professionalText}</b></center>` : `<center><br><br><b>${casualText}</b></center>`;
   // bkg.style.backgroundImage = toggle.checked ? "None" : "image-set('bkg.jpeg')";
   // bkg.style.backgroundColor = toggle.checked ? "black" : "None";
-  bkg.style.backgroundImage = toggle.checked ? "image-set('bkgdark.jpeg')" : "image-set('bkg.jpeg')";
+  // bkg.style.backgroundImage = toggle.checked ? "image-set('bkgdark.jpeg')" : "image-set('bkg.jpeg')";
+  document.body.classList.toggle('dark', toggle.checked);
   hi.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)";
   hi.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
   intro.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)";
