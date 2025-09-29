@@ -1,6 +1,6 @@
 :root {
     --hi-txt: clamp(2.0vmin, 3vh, 3vh);
-    --primary: #2e7d32;   /* green */
+    --primary: rgb(46, 125, 50);   /* green */
     --light: #f5f5f5;
     --dark: #222;
     --radius: 12px;
