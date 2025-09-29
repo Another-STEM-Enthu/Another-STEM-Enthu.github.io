@@ -43,7 +43,7 @@
      top: 1vh; 
      right: 2vw; 
      padding: 0.5em 1em; 
-     background-color: rgba(0,0,0,0.1); 
+     background-color: rgba(0,0,0,0.3); 
      color: rgb(0,128,0); 
      font-weight: bold; 
      border: 2px solid rgb(0,128,0); 
@@ -88,43 +88,62 @@ blogContent.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)
 
 
 
+
+
 <script>
+// Replace with your CounterAPI namespace and key
+const COUNTER_URL = "https://api.counterapi.dev/api/varadblog/varadblogcounter";
 
-window.addEventListener('DOMContentLoaded', () => {
-  const countSpan = document.getElementById('count');
+// A unique flag for this site so it doesn't increment again on reload
+const STORAGE_KEY = "visitorCounted";
 
-  // Step 1: Get visitor IP
-  fetch('https://api.ipify.org?format=json')
-    .then(res => res.json())
-    .then(data => {
-      const visitorIP = data.ip.replace(/\./g, '-'); // safe for URL key
-      const localStorageKey = `visited-${visitorIP}`;
-      const namespace = 'varad-blogs'; // CountAPI namespace
-      const key = visitorIP; // each IP has its own key
+async function updateCounter() {
+  const counterEl = document.getElementById("visitor-counter");
 
-      // Step 2: Check if already counted for this browser
-      if (!localStorage.getItem(localStorageKey)) {
-        // increment counter
-        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-          .then(res => res.json())
-          .then(data => {
-            countSpan.textContent = data.value;
-            // localStorage.setItem(localStorageKey, 'true'); // mark as counted
-          });
-      } else {
-        // just fetch the current value without incrementing
-        fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
-          .then(res => res.json())
-          .then(data => countSpan.textContent = data.value);
-      }
-    })
-    .catch(err => {
-      console.error("Visitor counter failed:", err);
-      countSpan.textContent = "N/A";
-    });
-});
+  try {
+    // If user already visited in this browser, just fetch count (no increment)
+    if (localStorage.getItem(STORAGE_KEY)) {
+      const res = await fetch(COUNTER_URL);
+      const data = await res.json();
+      counterEl.textContent = `Visitors: ${data.count}`;
+    } else {
+      // First visit in this browser → increment
+      const res = await fetch(`${COUNTER_URL}/up`, { method: "POST" });
+      const data = await res.json();
+      counterEl.textContent = `Visitors: ${data.count}`;
+      localStorage.setItem(STORAGE_KEY, "true");
+    }
+  } catch (err) {
+    counterEl.textContent = "Error loading counter";
+    console.error(err);
+  }
+}
 
+// Run on page load
+updateCounter();
 </script>
+
+<!-- <script>
+const namespace = "varad-page";
+const key = "visitors";
+const url = `https://counterapi.dev/api/${namespace}/${key}`;
+
+async function updateCounter() {
+  // Only increment if first time in this browser
+  if (!localStorage.getItem("visited")) {
+    const res = await fetch(`${url}/increment`);
+    const data = await res.json();
+    document.getElementById("count").textContent = data.value;
+    localStorage.setItem("visited", "true");
+  } else {
+    const res = await fetch(url);
+    const data = await res.json();
+    document.getElementById("count").textContent = data.value;
+  }
+}
+
+updateCounter();
+</script> -->
 
 
 </body>
