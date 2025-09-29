@@ -22,7 +22,7 @@ async function loadBlogs() {
         contentEl.innerHTML = `
           <h2>${blog.title}</h2>
           <small>${blog.date}</small>
-          <div>${blog.content}</div>
+          <br><br><br><div style = \"padding: 1vw;background-color: rgba(0,0,0,0.2); border-radius: 5vh; font-family: helvetica\">${blog.content}<br><br><br></div>
         `;
       });
 
@@ -32,7 +32,7 @@ async function loadBlogs() {
         contentEl.innerHTML = `
           <h2>${blog.title}</h2>
           <small>${blog.date}</small>
-          <div>${blog.content}</div>
+          <br><br><br><div style = \"padding: 1vw;background-color: rgba(0,0,0,0.2); border-radius: 5vh; font-family: helvetica\">${blog.content}<br><br><br></div>
         `;
       }
 
