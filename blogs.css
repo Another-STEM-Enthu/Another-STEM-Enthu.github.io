@@ -91,6 +91,7 @@ body.dark::before {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 2.5vw;	
     color: rgb(0, 0, 0);
+    
 }
 
 #blog-content {
@@ -130,6 +131,7 @@ body {
 
 /* Sidebar */
 #blog-list {
+  transition: 0.7s ease;	
   width: 20vw;;
   background: white;
   padding: 1.5rem;
@@ -147,12 +149,14 @@ body {
 }
 
 #blog-list ul {
+  
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 #blog-list li {
+  transition: 0.7s ease;	
   cursor: pointer;
   padding: 0.7rem 1rem;
   margin: 0.4rem 0;
@@ -168,6 +172,7 @@ body {
 
 /* Content area */
 #blog-content {
+  transition: 0.7s ease;	
   flex: 1;
   padding: 2rem;
   background: #fff;

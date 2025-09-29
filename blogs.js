@@ -20,8 +20,8 @@ async function loadBlogs() {
       li.textContent = blog.title;
       li.addEventListener("click", () => {
         contentEl.innerHTML = `
-          <h2>${blog.title}</h2>
-          <small>${blog.date}</small>
+          <h1>${blog.title}</h1>
+          ${blog.date}
           <br><br><br><div style = \"padding: 0.3vw;background-color: rgba(0,0,0,0.2); border-radius: 5vh; font-family: helvetica\"><br><br><br>${blog.content}<br><br><br></div>
         `;
       });
@@ -30,8 +30,8 @@ async function loadBlogs() {
       if (index === 0) {
         li.classList.add("active");
         contentEl.innerHTML = `
-          <h2>${blog.title}</h2>
-          <small>${blog.date}</small>
+          <h1>${blog.title}</h1>
+          ${blog.date}
           <br><br><br><div style = \"padding: 0.3vw;background-color: rgba(0,0,0,0.2); border-radius: 5vh; font-family: helvetica\"><br><br><br>${blog.content}<br><br><br></div>
         `;
       }
