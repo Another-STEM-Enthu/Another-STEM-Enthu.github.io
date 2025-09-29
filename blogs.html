@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded', () => {
           .then(res => res.json())
           .then(data => {
             countSpan.textContent = data.value;
-            localStorage.setItem(localStorageKey, 'true'); // mark as counted
+            // localStorage.setItem(localStorageKey, 'true'); // mark as counted
           });
       } else {
         // just fetch the current value without incrementing
