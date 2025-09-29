@@ -194,7 +194,6 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: absolute;
     width: var(--sitemap-xsize)/*32vw*/;
     height: 12vh;   /* keeps spacing responsive */
     transition: 0.7s ease-out;	
