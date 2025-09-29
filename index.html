@@ -387,19 +387,23 @@ const STORAGE_KEY = "visitorCounted";
 
 async function updateCounter() {
   const counterEl = document.getElementById("visitor-counter");
-
+  
   try {
     // If user already visited in this browser, just fetch count (no increment)
     if (localStorage.getItem(STORAGE_KEY)) {
       const res = await fetch(COUNTER_URL);
       const data = await res.json();
       counterEl.textContent = `Visitors: ${data.data.up_count}`;
+        alert(res);
+
     } else {
       // First visit in this browser → increment
-      const res = await fetch(`${COUNTER_URL}/up`, { method: "POST" });
+      const res = await fetch(COUNTER_URL + "up", { method: "POST" });
       const data = await res.json();
       counterEl.textContent = `Visitors: ${data.data.up_count}`;
       localStorage.setItem(STORAGE_KEY, "true");
+        alert(data.data.up_count);
+
     }
   } catch (err) {
     counterEl.textContent = "Error loading counter";
@@ -408,7 +412,9 @@ async function updateCounter() {
 }
 
 // Run on page load
-updateCounter();
+document.addEventListener("DOMContentLoaded", () => {
+    updateCounter();
+});
 </script>
 
 </body>
