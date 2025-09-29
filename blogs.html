@@ -36,9 +36,25 @@
       </div>
     </section>
   </main>
-<div style="text-align: right; color: white;"><br><br><br>Version 0.0<br>I am somewhat HTML literate.</div>
 
-  <script src="blogs.js" defer></script>
+<div style="text-align: right; color: white;"><br><br><br>Version 0.0<br>I am somewhat HTML literate.</div>
+<div id="visitor-counter" style="
+     position: fixed; 
+     top: 1vh; 
+     right: 2vw; 
+     padding: 0.5em 1em; 
+     background-color: rgba(0,0,0,0.1); 
+     color: rgb(0,128,0); 
+     font-weight: bold; 
+     border: 2px solid rgb(0,128,0); 
+     border-radius: 0.8vw;
+     font-size: 1.2em;
+     z-index: 1000;">
+  Visitors: <span id="count">0</span>
+</div>
+
+
+<script src="blogs.js" defer></script>
 
 <script>
 const toggle = document.getElementById('modeToggle');
@@ -66,6 +82,46 @@ blogContent.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.15)" : "rgb
 blogList.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
 blogContent.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
 
+});
+
+</script>
+
+
+
+<script>
+
+window.addEventListener('DOMContentLoaded', () => {
+  const countSpan = document.getElementById('count');
+
+  // Step 1: Get visitor IP
+  fetch('https://api.ipify.org?format=json')
+    .then(res => res.json())
+    .then(data => {
+      const visitorIP = data.ip.replace(/\./g, '-'); // safe for URL key
+      const localStorageKey = `visited-${visitorIP}`;
+      const namespace = 'varad-blogs'; // CountAPI namespace
+      const key = visitorIP; // each IP has its own key
+
+      // Step 2: Check if already counted for this browser
+      if (!localStorage.getItem(localStorageKey)) {
+        // increment counter
+        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+          .then(res => res.json())
+          .then(data => {
+            countSpan.textContent = data.value;
+            localStorage.setItem(localStorageKey, 'true'); // mark as counted
+          });
+      } else {
+        // just fetch the current value without incrementing
+        fetch(`https://api.countapi.xyz/get/${namespace}/${key}`)
+          .then(res => res.json())
+          .then(data => countSpan.textContent = data.value);
+      }
+    })
+    .catch(err => {
+      console.error("Visitor counter failed:", err);
+      countSpan.textContent = "N/A";
+    });
 });
 
 </script>

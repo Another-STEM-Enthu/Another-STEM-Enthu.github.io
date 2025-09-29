@@ -325,10 +325,22 @@
   </div>
 
 
-
 <!-- </div> -->
 <div style="position: absolute; bottom: -10vh; right: 0vw; text-align: right; color: white;"><br><br><br>Version 0.0<br>I am somewhat HTML literate.</div>
-
+<div id="visitor-counter" style="
+     position: fixed; 
+     top: 1vh; 
+     right: 2vw; 
+     padding: 0.5em 1em; 
+     background-color: rgba(0,0,0,0.1); 
+     color: rgb(0,128,0); 
+     font-weight: bold; 
+     border: 2px solid rgb(0,128,0); 
+     border-radius: 0.8vw;
+     font-size: 1.2em;
+     z-index: 1000;">
+  Visitors: <span id="count">0</span>
+</div>
 <script>
 const toggle = document.getElementById('modeToggle');
 
