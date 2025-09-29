@@ -106,7 +106,6 @@ async function updateCounter() {
       const res = await fetch(COUNTER_URL);
       const data = await res.json();
       counterEl.textContent = `Visitors: ${data.data.up_count}`;
-        alert(res);
 
     } else {
       // First visit in this browser → increment
@@ -114,7 +113,6 @@ async function updateCounter() {
       const data = await res.json();
       counterEl.textContent = `Visitors: ${data.data.up_count}`;
       localStorage.setItem(STORAGE_KEY, "true");
-        alert(data.data.up_count);
 
     }
   } catch (err) {
