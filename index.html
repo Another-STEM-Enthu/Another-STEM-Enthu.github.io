@@ -187,7 +187,7 @@
 
     /* Circle handle with text inside */
     .slider::before {
-      content: "Casual";
+      content: "Light";
       position: absolute;
       height: calc(0.8 * var(--slider-size));
       width: calc(0.8 * var(--slider-size));
@@ -211,7 +211,7 @@
     input:checked + .slider::before {
       /* transform: translateX(calc(4 * var(--slider-size))); */
       transform: translateX(var(--movex-dist));
-      content: "Pro";                   /* text changes */
+      content: "Dark";                   /* text changes */
       color: rgb(0, 128, 0);                      /* text on green */
       background-color: #ccc;  /* optional: circle green */
     }
@@ -273,9 +273,14 @@ As part of my major @ IIT Bombay, I am exploring the technology that goes into d
 As part of my minor, I have explored the popular themes in Machine Learning and Reinforcement Learning.`;
 
 toggle.addEventListener('change', () => {
-  intro.innerHTML = toggle.checked ? `<center><br><br><b>${professionalText}</b></center>` : `<center><br><br><b>${casualText}</b></center>`;
-  bkg.style.backgroundImage = toggle.checked ? "None" : "image-set('bkg.jpeg')";
-  bkg.style.backgroundColor = toggle.checked ? "black" : "None";
+  // intro.innerHTML = toggle.checked ? `<center><br><br><b>${professionalText}</b></center>` : `<center><br><br><b>${casualText}</b></center>`;
+  // bkg.style.backgroundImage = toggle.checked ? "None" : "image-set('bkg.jpeg')";
+  // bkg.style.backgroundColor = toggle.checked ? "black" : "None";
+  bkg.style.backgroundImage = toggle.checked ? "image-set('bkgdark.jpeg')" : "image-set('bkg.jpeg')";
+  hi.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.3)" : "rgba(255, 255, 255, 0.3)";
+  hi.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
+  intro.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.3)" : "rgba(255, 255, 255, 0.3)";
+  intro.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
 });
 </script>
 
