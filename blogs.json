@@ -1,0 +1,12 @@
+[
+  {
+    "title": "My First Blog",
+    "date": "2025-09-23",
+    "content": "<p>This is my first blog post. I can write HTML here.</p>"
+  },
+  {
+    "title": "Second Blog",
+    "date": "2025-09-24",
+    "content": "<p>Wireless communication has revolutionized the way we interact with the world. One of the most exciting areas in this field is <b>MIMO (Multiple Input Multiple Output) technology</b>, which allows multiple antennas to transmit and receive data simultaneously, significantly increasing data throughput.</p>\n<p>Understanding MIMO requires a deep dive into signal processing, channel estimation, and interference management. In this post, we explore both the theoretical foundations and practical implementations of MIMO systems.</p>\n<p><img src=\"bkg.jpeg\" alt=\"MIMO Illustration\" style=\"width:100%; border-radius: 12px; margin: 1rem 0;\"></p>\n<p>In modern wireless networks, <b>cell-free MIMO</b> systems are gaining traction. Unlike traditional networks, these systems remove the concept of fixed cells, allowing all antennas to serve all users collaboratively. This increases coverage, reduces interference, and provides more uniform service quality.</p>\n<p><b>Research insights:</b> Simulations using MATLAB and Python have shown that cell-free MIMO can significantly improve spectral efficiency in dense urban environments. Moreover, integrating AI-based beamforming and channel estimation algorithms can further optimize network performance.</p>\n<p><b>Conclusion:</b> Exploring MIMO technology provides a glimpse into the future of wireless communication. From smartphones to IoT devices, understanding how signals travel and interact in multi-antenna systems is crucial for building efficient and robust networks.</p>"
+  }
+]
