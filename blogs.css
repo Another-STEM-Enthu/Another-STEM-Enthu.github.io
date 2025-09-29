@@ -1,5 +1,18 @@
+@media (orientation: portrait) {
 :root {
     --hi-txt: clamp(2.0vmin, 3vh, 3vh);
+    --primary: rgb(46, 125, 50);   /* green */
+    --light: #f5f5f5;
+    --dark: #222;
+    --radius: 12px;
+    --sitemap-xsize: 55vw;
+    --sitemap-left: 25vw;
+    --sitemap-opacity: 0.9;
+}
+}
+@media (orientation: landscape) {
+:root {
+    --hi-txt: clamp(2.0vmax, 2.2vh, 2.2vmin);
     --primary: rgb(46, 125, 50);   /* green */
     --light: #f5f5f5;
     --dark: #222;
@@ -7,6 +20,7 @@
     --sitemap-xsize: 32vw;
     --sitemap-left: 34vw;
     --sitemap-opacity: 0.4;
+}
 }
 
 header {
@@ -22,7 +36,7 @@ header {
     /*width: 92.5vw;
     height: calc(0.8*var(--hi-height))/*var(--hi-height)*//*19vw*/;	
     transition: 0.7s ease;	
-    font-size: calc(3*var(--hi-txt));
+    font-size: calc(2*var(--hi-txt));
 }
 
 
@@ -204,6 +218,8 @@ body {
     height: 12vh;   /* keeps spacing responsive */
     transition: 0.7s ease-out;	
     opacity:var(--sitemap-opacity);
+    backdrop-filter: blur(10px); /* the glass blur */
+    -webkit-backdrop-filter: blur(10px); /* for Safari */
 }
 
 #sitemap:hover{
@@ -216,12 +232,13 @@ body {
     border-radius: 8px;		
     width: calc(0.26*var(--sitemap-xsize))/*8vw*/;
     height: 7vh;
-    font-size: calc(0.75*var(--hi-txt));
+    font-size: calc(0.55*var(--hi-txt));
     border-top: 5px solid rgb(0, 128, 0);
     border-bottom: none;
     border-right: none;
     border-left: none;
     cursor: pointer; /* correct, not "hand" */
+    padding-right: 10px;
 }
 
 .btn span {
