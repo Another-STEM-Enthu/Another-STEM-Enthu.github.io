@@ -50,7 +50,7 @@
       position: absolute;
       top:15vh;
       left:20vw;
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.5);
       border-radius: 2.5vw;		
       border-left: 0.5vh solid rgb(0, 128, 0);
       border-right: 0.5vh solid rgb(0, 128, 0);
@@ -71,7 +71,7 @@
       position: absolute;
       top:calc(1.1*var(--hi-height))/*40vh*/;
       left:20vw;
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.5);
       border-radius: 2.5vw;		
       border-left: 0.5vh solid rgb(0, 128, 0);
       border-right: 0.5vh solid rgb(0, 128, 0);
@@ -277,9 +277,9 @@ toggle.addEventListener('change', () => {
   // bkg.style.backgroundImage = toggle.checked ? "None" : "image-set('bkg.jpeg')";
   // bkg.style.backgroundColor = toggle.checked ? "black" : "None";
   bkg.style.backgroundImage = toggle.checked ? "image-set('bkgdark.jpeg')" : "image-set('bkg.jpeg')";
-  hi.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.3)" : "rgba(255, 255, 255, 0.3)";
+  hi.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)";
   hi.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
-  intro.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.3)" : "rgba(255, 255, 255, 0.3)";
+  intro.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)";
   intro.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
 });
 </script>
