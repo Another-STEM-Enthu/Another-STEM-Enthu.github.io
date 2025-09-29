@@ -1,9 +1,12 @@
 :root {
-  --hi-txt: clamp(2.0vmin, 3vh, 3vh);
-  --primary: #2e7d32;   /* green */
-  --light: #f5f5f5;
-  --dark: #222;
-  --radius: 12px;
+    --hi-txt: clamp(2.0vmin, 3vh, 3vh);
+    --primary: #2e7d32;   /* green */
+    --light: #f5f5f5;
+    --dark: #222;
+    --radius: 12px;
+    --sitemap-xsize: 32vw;
+    --sitemap-left: 34vw;
+    --sitemap-opacity: 0.4;
 }
 
 header {
@@ -174,4 +177,68 @@ body {
   #blog-content{
      width: 80%;
   }
+}
+
+
+
+
+#sitemap{
+    position: fixed;
+    bottom:0vh;
+    left:var(--sitemap-left);
+    border-top: 1vh solid rgb(0, 128, 0);
+    border-bottom: 1vh solid rgb(0, 128, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 0.8vw;		
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: var(--sitemap-xsize)/*32vw*/;
+    height: 12vh;   /* keeps spacing responsive */
+    transition: 0.7s ease-out;	
+    opacity:var(--sitemap-opacity);
+}
+
+#sitemap:hover{
+    opacity:1;
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0,1);
+}
+.btn {
+    position: absolute;
+    border-radius: 8px;		
+    width: calc(0.26*var(--sitemap-xsize))/*8vw*/;
+    height: 7vh;
+    font-size: calc(0.75*var(--hi-txt));
+    border-top: 5px solid rgb(0, 128, 0);
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    cursor: pointer; /* correct, not "hand" */
+}
+
+.btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -10px;
+    transition: 0.5s;
+}
+
+.btn:hover span {
+    padding-right: 25px;
+}
+
+.btn:hover span:after {
+    opacity: 1;
+    right: 0;
 }
