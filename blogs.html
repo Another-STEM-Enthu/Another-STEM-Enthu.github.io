@@ -87,10 +87,28 @@ blogContent.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)
 </script>
 
 
-
-
-
+<script async src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const counter = new Counter({
+    workspace: 'varadblog'
+  });
+
+  // Increment the view count when the page loads
+  counter.up('varadblogcounter')
+    .then(result => {
+      document.getElementById('visitor-counter').textContent = result.value;
+    })
+    .catch(error => {
+      console.error('Error tracking page view:', error);
+      document.getElementById('visitor-counter').textContent = 'Error loading count';
+    });
+
+});
+</script>
+
+
+<!-- <script>
 // Replace with your CounterAPI namespace and key
 const COUNTER_URL = "https://api.counterapi.dev/v2/varadblog/varadblogcounter";
 
@@ -125,7 +143,7 @@ async function updateCounter() {
 document.addEventListener("DOMContentLoaded", () => {
     updateCounter();
 });
-</script>
+</script> -->
 
 <!-- <script>
 const namespace = "varad-page";
