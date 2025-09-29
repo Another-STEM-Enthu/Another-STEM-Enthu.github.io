@@ -183,6 +183,7 @@ body {
 
 
 #sitemap{
+    z-index: 9999;
     position: fixed;
     top:0vh;
     left:var(--sitemap-left);
