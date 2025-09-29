@@ -105,12 +105,12 @@ async function updateCounter() {
     if (localStorage.getItem(STORAGE_KEY)) {
       const res = await fetch(COUNTER_URL);
       const data = await res.json();
-      counterEl.textContent = `Visitors: ${data.up_count}`;
+      counterEl.textContent = `Visitors: ${data.data.up_count}`;
     } else {
       // First visit in this browser → increment
       const res = await fetch(`${COUNTER_URL}/up`, { method: "POST" });
       const data = await res.json();
-      counterEl.textContent = `Visitors: ${data.up_count}`;
+      counterEl.textContent = `Visitors: ${data.data.up_count}`;
       localStorage.setItem(STORAGE_KEY, "true");
     }
   } catch (err) {
