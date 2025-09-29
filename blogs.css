@@ -184,7 +184,7 @@ body {
 
 #sitemap{
     position: fixed;
-    bottom:0vh;
+    top:0vh;
     left:var(--sitemap-left);
     border-top: 1vh solid rgb(0, 128, 0);
     border-bottom: 1vh solid rgb(0, 128, 0);
@@ -206,7 +206,7 @@ body {
     background-color: rgba(0, 0, 0,1);
 }
 .btn {
-    position: absolute;
+    /* position: absolute; */
     border-radius: 8px;		
     width: calc(0.26*var(--sitemap-xsize))/*8vw*/;
     height: 7vh;

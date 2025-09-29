@@ -6,11 +6,18 @@
   <link rel="stylesheet" href="blogs.css">
 </head>
 <body>
-  <header>
+
+  <!-- Sitemap at top -->
+  <div id="sitemap">
+      <a href="index.html"><button class="btn"><span>Home</span></button></a>
+      <a href="blogs.html"><button class="btn"><span>Posts</span></button></a>
+      <!-- <a href="#about"><button class="btn"><span>About</span></button></a> -->
+  </div>
+
+  <header style="margin-top: var(--sitemap-height, 12vh);">
     <b>📚 My Blogs</b>
   </header>
 
-  
   <main class="container">
     <aside id="blog-list" class="glass">
       <h2>All Posts</h2>
@@ -26,13 +33,6 @@
   </main>
 
   <script src="blogs.js" defer></script>
-
-  <div id="sitemap">
-    <a href="index.html"><button class="btn" style="top:3vh; left:calc(0.15*var(--sitemap-xsize));;"><span>Home</span></button></a>
-    <a href="blogs.html"><button class="btn" style="top:3vh; left:calc(0.6*var(--sitemap-xsize));"><span>Posts</span></button></a>
-    <!-- [0.055, 0.375, 0.695]*var(--sitemap-xsize) -->
-    <!-- <a href="#about"><button class="btn" style="top:3vh; left:calc(0.695*var(--sitemap-xsize));"><span>About</span></button></a> -->
-  </div>
 
 </body>
 </html>

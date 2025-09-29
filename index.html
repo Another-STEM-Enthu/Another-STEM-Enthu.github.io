@@ -99,7 +99,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      position: absolute;
+      /* position: absolute; */
       width: var(--sitemap-xsize)/*32vw*/;
       height: 12vh;   /* keeps spacing responsive */
       transition: 0.7s ease-out;	
@@ -112,7 +112,7 @@
       background-color: rgba(0, 0, 0,1);
     }
     .btn {
-      position: absolute;
+      /* position: absolute; */
       border-radius: 8px;		
       width: calc(0.26*var(--sitemap-xsize))/*8vw*/;
       height: 7vh;
@@ -251,8 +251,8 @@
   </center></div>
 
   <div id="sitemap">
-    <a href="index.html"><button class="btn" style="top:3vh; left:calc(0.15*var(--sitemap-xsize));;"><span>Home</span></button></a>
-    <a href="blogs.html"><button class="btn" style="top:3vh; left:calc(0.6*var(--sitemap-xsize));"><span>Posts</span></button></a>
+      <a href="index.html"><button class="btn"><span>Home</span></button></a>
+      <a href="blogs.html"><button class="btn"><span>Posts</span></button></a>
     <!-- [0.055, 0.375, 0.695]*var(--sitemap-xsize) -->
     <!-- <a href="#about"><button class="btn" style="top:3vh; left:calc(0.695*var(--sitemap-xsize));"><span>About</span></button></a> -->
   </div>
