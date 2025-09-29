@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <title>Varad's page</title>
   <style>
   @media (orientation: portrait) {
@@ -61,16 +61,18 @@
       background-position: center;  
       background-repeat: no-repeat;
     } */
-    #hi{
+    /*#hi{
+      backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px); 
       position: absolute;
       top:15vh;
       left:20vw;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.15);
       border-radius: 2.5vw;		
       border-left: 0.5vh solid rgb(0, 128, 0);
       border-right: 0.5vh solid rgb(0, 128, 0);
       width: 60vw;
-      height: calc(0.5*var(--hi-height))/*var(--hi-height)*//*19vw*/;	
+      height: calc(0.5*var(--hi-height));	
       transition: 0.7s ease;	
       opacity: 1.0;
       font-size: var(--hi-txt);	
@@ -80,13 +82,54 @@
 
     #hi:hover{
       transform: scale(1.1);
+    }*/
+    #hi {
+      backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px); 
+      position: absolute;
+      top: 15vh;
+      left: 20vw;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 2.5vw;		
+      border-left: 0.5vh solid rgb(0, 128, 0);
+      border-right: 0.5vh solid rgb(0, 128, 0);
+      width: 60vw;
+      height: auto; /* let content dictate height */
+      padding: 1.5vw;
+      transition: 0.7s ease;	
+      opacity: 1.0;
+      font-size: var(--hi-txt);	
+      display: flex;
+      align-items: center;
+    }
+
+    #hi:hover {
+      transform: scale(1.1);
+    }
+
+    /* inner flex container */
+    .hi-content {
+      display: flex;
+      align-items: center;
+      gap: 2vw; /* space between photo and text */
+    }
+
+    /* photo styling */
+    .hi-photo {
+      width: calc(5*var(--hi-txt));      /* adjust size as needed */
+      height: calc(5*var(--hi-txt));
+      border-radius: 50%; /* circular photo */
+      object-fit: cover;
+      flex-shrink: 0;   /* don’t shrink photo */
     }
 
     #intro{
+      backdrop-filter: blur(10px); /* the glass blur */
+      -webkit-backdrop-filter: blur(10px); /* for Safari */
       position: absolute;
       top:calc(1.1*var(--hi-height))/*40vh*/;
       left:20vw;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.15);
       border-radius: 2.5vw;		
       border-left: 0.5vh solid rgb(0, 128, 0);
       border-right: 0.5vh solid rgb(0, 128, 0);
@@ -236,13 +279,21 @@
 <!-- <body background="bkg.jpeg"> -->
 <body>
 
-<div id = "bkg">
+<!-- <div id = "bkg"> -->
 
-  <div id="hi"><center><br>
+  <!-- <div id="hi"><center><br>
   <br>
   <b>Welcome to<br> "Varad's musings."</b>
   </center>
+  </div> -->
+<div id="hi">
+  <div class="hi-content">
+    <img src="id.jpg" alt="My Photo" class="hi-photo">
+    <div class="hi-text">
+      <b>Welcome to<br>"Varad's Musings."</b>
+    </div>
   </div>
+</div>
 
 <div class="slider-container">
   <label class="switch">
@@ -274,7 +325,7 @@
 
 
 
-</div>
+<!-- </div> -->
 
 <script>
 const intro = document.getElementById('intro');
@@ -293,9 +344,9 @@ toggle.addEventListener('change', () => {
   // bkg.style.backgroundColor = toggle.checked ? "black" : "None";
   // bkg.style.backgroundImage = toggle.checked ? "image-set('bkgdark.jpeg')" : "image-set('bkg.jpeg')";
   document.body.classList.toggle('dark', toggle.checked);
-  hi.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)";
+  hi.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.15)" : "rgba(255, 255, 255, 0.15)";
   hi.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
-  intro.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)";
+  intro.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.15)" : "rgba(255, 255, 255, 0.15)";
   intro.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
 });
 </script>
