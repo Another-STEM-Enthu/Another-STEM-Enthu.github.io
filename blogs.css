@@ -36,14 +36,19 @@ header {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 2rem;
-  background: url("bkg.jpeg") no-repeat center center/cover; /* your background */
-  color: #000000; /* text looks better on glass */
-}
 
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("bkg.jpeg") no-repeat center center;
+  background-size: cover;
+  z-index: -1; /* sit behind all content */
+}
 #blog-list {
   width: 25%;
   float: left;
