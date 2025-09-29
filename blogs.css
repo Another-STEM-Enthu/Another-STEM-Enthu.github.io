@@ -8,6 +8,13 @@
     --sitemap-xsize: 55vw;
     --sitemap-left: 25vw;
     --sitemap-opacity: 0.9;
+
+    --slider-size: calc(2.5 * var(--hi-txt));
+    --switch-size: calc(3.5 * var(--hi-txt));
+    --movex-dist: calc(0.29*var(--switch-size));
+    --sitemap-xsize: 55vw;
+    --sitemap-left: 25vw;
+    --sitemap-opacity: 1.0;
 }
 }
 @media (orientation: landscape) {
@@ -20,6 +27,15 @@
     --sitemap-xsize: 32vw;
     --sitemap-left: 34vw;
     --sitemap-opacity: 0.4;
+
+
+    --slider-size: calc(2.5 * var(--hi-txt));
+    --switch-size: 15vw;
+    --movex-dist: calc(0.65*var(--switch-size));
+    --sitemap-xsize: 32vw;
+    --sitemap-left: 34vw;
+    --sitemap-opacity: 0.4;
+
 }
 }
 
@@ -63,6 +79,10 @@ body::before {
   background-size: cover;
   z-index: -1; /* sit behind all content */
 }
+body.dark::before {
+  background: url("bkgdark.jpeg") no-repeat center center;
+  background-size: cover;
+}  
 #blog-list {
   width: 25%;
   float: left;
@@ -264,4 +284,73 @@ body {
 .btn:hover span:after {
     opacity: 1;
     right: 0;
+}
+
+
+
+/* Slider container */
+.slider-container {
+  position: absolute;
+  /* top: calc(0.7*var(--hi-height) + 0.7*var(--intro-height) + 1vh); */
+  top: calc(0.1*var(--hi-height));
+  left: 1vw;
+  transform: translateX(-calc(0.49*var(--switch-size)));
+  display: flex;
+  align-items: center;
+}
+
+/* Switch wrapper */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: calc(var(--switch-size));/*calc(6 * var(--slider-size))*/;
+  height: calc(1.0 * var(--slider-size));
+}
+
+/* Hide checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;       /* track color */
+  transition: 0.4s;
+  border-radius: calc(0.75 * var(--slider-size));
+}
+
+/* Circle handle with text inside */
+.slider::before {
+  content: "Light";
+  position: absolute;
+  height: calc(0.8 * var(--slider-size));
+  width: calc(0.8 * var(--slider-size));
+  left: calc(0.1 * var(--slider-size));
+  bottom: calc(0.1 * var(--slider-size));
+  background-color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: calc(0.8* var(--slider-size));
+  font-size: calc(0.5 * var(--hi-txt));
+  font-weight: bold;
+  color: rgb(0, 128, 0); /* green text */
+  transition: 0.4s;
+}
+
+/* Slider active state */
+input:checked + .slider {
+  background-color: rgb(0, 128, 0); /* green track */
+}
+
+input:checked + .slider::before {
+  /* transform: translateX(calc(4 * var(--slider-size))); */
+  transform: translateX(var(--movex-dist));
+  content: "Dark";                   /* text changes */
+  color: rgb(0, 128, 0);                      /* text on green */
+  background-color: #ccc;  /* optional: circle green */
 }

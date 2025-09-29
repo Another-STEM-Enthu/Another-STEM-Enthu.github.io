@@ -6,7 +6,12 @@
   <link rel="stylesheet" href="blogs.css">
 </head>
 <body>
-
+<div class="slider-container">
+  <label class="switch">
+    <input type="checkbox" id="modeToggle">
+    <span class="slider"></span>
+  </label>
+</div>
   <!-- Sitemap at top -->
   <div id="sitemap">
       <a href="index.html"><button class="btn"><span>Home</span></button></a>
@@ -33,6 +38,36 @@
   </main>
 
   <script src="blogs.js" defer></script>
+
+<script>
+const toggle = document.getElementById('modeToggle');
+const blogList = document.getElementById("blog-list");
+const blogContent = document.getElementById("blog-content");
+
+window.addEventListener('DOMContentLoaded', () => {
+  const state = localStorage.getItem('modeToggleState');
+  if (state === 'true') {
+    toggle.checked = true;
+  } else {
+    toggle.checked = false;
+  }
+document.body.classList.toggle('dark', toggle.checked);
+blogList.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.15)" : "rgba(255, 255, 255, 0.35)";
+blogContent.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.15)" : "rgba(255, 255, 255, 0.35)";
+blogList.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
+blogContent.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
+});
+toggle.addEventListener('change', () => {
+localStorage.setItem('modeToggleState', toggle.checked);
+document.body.classList.toggle('dark', toggle.checked);
+blogList.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.15)" : "rgba(255, 255, 255, 0.35)";
+blogContent.style.backgroundColor= toggle.checked ? "rgba(0, 0, 0, 0.15)" : "rgba(255, 255, 255, 0.35)";
+blogList.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
+blogContent.style.color= toggle.checked ? "rgba(255, 255, 255)" : "rgba(0, 0, 0)";
+
+});
+
+</script>
 
 </body>
 </html>

@@ -46,3 +46,4 @@ async function loadBlogs() {
 }
 
 document.addEventListener("DOMContentLoaded", loadBlogs);
+
