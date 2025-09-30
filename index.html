@@ -378,29 +378,10 @@ toggle.addEventListener('change', () => {
 </script>
 
 
-<script async src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const counter = new Counter({
-    workspace: 'varadblog'
-  });
-
-  // Increment the view count when the page loads
-  counter.up('varadblogcounter')
-    .then(result => {
-      document.getElementById('visitor-counter').textContent = result.value;
-    })
-    .catch(error => {
-      console.error('Error tracking page view:', error);
-      document.getElementById('visitor-counter').textContent = 'Error loading count';
-    });
-
-});
-</script>
-
-<!-- <script>
 // Replace with your CounterAPI namespace and key
-const COUNTER_URL = "https://api.counterapi.dev/v2/varadblog/varadblogcounter";
+const COUNTER_URL = "https://api.counterapi.dev/v2/varadblog/moja";
 
 // A unique flag for this site so it doesn't increment again on reload
 const STORAGE_KEY = "visitorCounted";
@@ -417,14 +398,14 @@ async function updateCounter() {
 
     } else {
       // First visit in this browser → increment
-      const res = await fetch(COUNTER_URL + "up", { method: "POST" });
+      const res = await fetch(COUNTER_URL + "/up", { method: "GET" });
       const data = await res.json();
       counterEl.textContent = `Visitors: ${data.data.up_count}`;
       localStorage.setItem(STORAGE_KEY, "true");
 
     }
   } catch (err) {
-    counterEl.textContent = "Error loading counter";
+    counterEl.textContent = "Smart Browser";
     console.error(err);
   }
 }
@@ -433,7 +414,7 @@ async function updateCounter() {
 document.addEventListener("DOMContentLoaded", () => {
     updateCounter();
 });
-</script> -->
+</script>
 
 </body>
 </html>
